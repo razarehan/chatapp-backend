@@ -1,0 +1,33 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.pid.lock
+
+# Node modules
+node_modules/
+jspm_packages/
+
+# Environment variables
+.env
+
+package-lock.json
+
+# Binaries
+dist/
+build/
+
+# Cache and temp files
+.nyc_output/
+coverage/
+.tmp/
+
+# Editor and OS-specific files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
