@@ -1,12 +1,21 @@
-const http = require('http');
-const app = require('./app');
-// const debug = require('debug')("node-angular");
+const express = require('express');
+const cors = require('cors');
+const connectDB = require('./config/db');
+const authRoutes = require('./routes/auth');
+const dotenv = require('dotenv');
 
-const port = process.env.PORT || 3000;
+dotenv.config();
 
-app.set('port', port);
-const server = http.createServer(app);
+const app = express();
+connectDB();
 
-server.listen(port, ()=> {
-    console.log("server is listening");
+app.use(cors());
+app.use(express.json());
+
+app.use('/api/auth', authRoutes);
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
